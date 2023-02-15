@@ -44,3 +44,14 @@ outputField.appendChild(liTag);
 
 };
 
+
+// Bonus    - Wenn Enter Taste, dann ebenfalls machen
+// keyup    -   aufs ganze body legen 
+document.querySelector("body").addEventListener("keyup", (e) => {
+if(e.keyCode === 13) {   // geht -> keyCode === 13    = Enter 
+                        //  geht -> key === "Enter"     
+                        //geht  -> code === "Enter" 
+    textZuHtml();
+}
+})
+
