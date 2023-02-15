@@ -18,7 +18,9 @@ const outputField = document.querySelector("ul");
 
 // click
 speichern.addEventListener("click", (e) => {
-    textZuHtml()
+    const bAnfang = `<n>` ;  // sonst steht im html   undefinierter Text :-( 
+    const bEnde = `</n>`;      // da enter <b> Problem verusacht :-(
+    textZuHtml(bAnfang, bEnde);
 });
 
 
@@ -39,10 +41,11 @@ function textZuHtml(a, b) {    // a = bAnfang  b = bEnde  von Enter Taste
     // !!! textContent kann nicht interpretieren das wir fett wollen
     // !!! geht nicht
     // liTag.textContent = `${a} ${inputFieldValue} ${b}`;   // nur Enter text sollte fett werden
-    
+
     // !!! text verknüpfen und html weiß das es jetzt fett werden soll 
-    // !!! geht :-)
+    // !!! geht :-)   macht fehler wenn   knopf gedrückt
     liTag.innerHTML = `${a} ${inputFieldValue} ${b}`;   // nur Enter text sollte fett werden
+
 
     console.log(liTag.textContent);
 
