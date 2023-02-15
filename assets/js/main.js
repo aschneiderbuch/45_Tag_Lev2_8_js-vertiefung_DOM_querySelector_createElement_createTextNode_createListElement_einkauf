@@ -30,17 +30,17 @@ function textZuHtml() {
     const inputFieldValue = inputField.value;
     console.log(inputFieldValue);
 
-// listenelement erstellen 
-const liTag = document.createElement("li");
-console.log(liTag);
+    // listenelement erstellen 
+    const liTag = document.createElement("li");
+    console.log(liTag);
 
-// Element und Value verknüpfen
-// man füllt den Parameter vom liTag Object    mit dem Value
-liTag.textContent = inputFieldValue;
-console.log(liTag.textContent);
+    // Element und Value verknüpfen
+    // man füllt den Parameter vom liTag Object    mit dem Value
+    liTag.textContent = inputFieldValue;
+    console.log(liTag.textContent);
 
-// ins html in li schreiben
-outputField.appendChild(liTag);
+    // ins html in li schreiben
+    outputField.appendChild(liTag);
 
 };
 
@@ -48,10 +48,12 @@ outputField.appendChild(liTag);
 // Bonus    - Wenn Enter Taste, dann ebenfalls machen
 // keyup    -   aufs ganze body legen 
 document.querySelector("body").addEventListener("keyup", (e) => {
-if(e.keyCode === 13) {   // geht -> keyCode === 13    = Enter 
-                        //  geht -> key === "Enter"     
-                        //geht  -> code === "Enter" 
+    e.preventDefault();
+console.log("in enter");       //  geht rein, egal bei welcher Taste
+    if (e.keyCode === 13) {   // darf nur bei Enter weiter
+    // geht -> key Code === 13    = Enter 
+    //  geht -> key === "Enter"     
+    //geht  -> code === "Enter" 
     textZuHtml();
 }
 })
-
