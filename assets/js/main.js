@@ -23,7 +23,7 @@ speichern.addEventListener("click", (e) => {
 
 
 // function
-function textZuHtml() {
+function textZuHtml(a, b) {    // a = bAnfang  b = bEnde  von Enter Taste
     console.log("in function");
 
     // input holen
@@ -35,8 +35,15 @@ function textZuHtml() {
     console.log(liTag);
 
     // Element und Value verknüpfen
-    // man füllt den Parameter vom liTag Object    mit dem Value
-    liTag.textContent = inputFieldValue;
+    // man füllt den Parameter/Attribute vom liTag Object    mit dem Value
+    // !!! textContent kann nicht interpretieren das wir fett wollen
+    // !!! geht nicht
+    // liTag.textContent = `${a} ${inputFieldValue} ${b}`;   // nur Enter text sollte fett werden
+    
+    // !!! text verknüpfen und html weiß das es jetzt fett werden soll 
+    // !!! geht :-)
+    liTag.innerHTML = `${a} ${inputFieldValue} ${b}`;   // nur Enter text sollte fett werden
+
     console.log(liTag.textContent);
 
     // ins html in li schreiben
@@ -54,6 +61,8 @@ console.log("in enter");       //  geht rein, egal bei welcher Taste
     // geht -> key Code === 13    = Enter 
     //  geht -> key === "Enter"     
     //geht  -> code === "Enter" 
-    textZuHtml();
+   const bAnfang = `<b>` ;
+   const bEnde = `</b>`;
+    textZuHtml(bAnfang, bEnde);
 }
 })
